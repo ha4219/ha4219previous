@@ -1,0 +1,56 @@
+# boj 10757
+
+## 큰 수 
+
+``` c++
+//
+//  boj_15740.cpp
+//  baekjoon
+//
+//  Created by 정동하 on 2019/12/15.
+//  Copyright © 2019 정동하. All rights reserved.
+//
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+void boj_15740(){
+    string a, b;
+    cin>>a>>b;
+    
+    vector<char> res;
+    int sum = 0;
+    while(!a.empty() || !b.empty() || sum){
+        if(!a.empty()){
+            sum += (a.back() - '0');
+            a.pop_back();
+        }
+        if(!b.empty()){
+            sum += (b.back() - '0');
+            b.pop_back();
+        }
+        res.push_back(sum % 10 + '0');
+        sum /= 10;
+    }
+    reverse(res.begin(), res.end());
+    
+    
+    long size = res.size();
+    
+    for(int i=0;i<size;i++){
+        cout<<res[i];
+    }
+    cout<<endl;
+}
+
+int main(){
+    cin.sync_with_stdio(false);
+    cin.tie(NULL);
+    boj_15740();
+}
+
+```
