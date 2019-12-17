@@ -1,0 +1,70 @@
+#boj_12865
+## dp
+생각이 나지 않는다.
+
+~~~c++
+//
+//  boj_12865.cpp
+//  baekjoon
+//
+//  Created by 정동하 on 2019/12/17.
+//  Copyright © 2019 정동하. All rights reserved.
+//
+
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+struct boj_12865_hi{
+    int w, v;
+};
+
+int boj_12865_dp[101][100001];
+
+void boj_12865(){
+    
+    int n, k;
+    cin>>n>>k;
+    vector<boj_12865_hi> in;
+    for(int i=0;i<n;i++){
+        int w,v;
+        cin>>w>>v;
+        in.push_back({w, v});
+    }
+    
+
+    for(int i=0;i<n;i++){
+        for(int j=0;j<=k;j++){
+            if(i==0){
+                if(in[i].w <= j) {
+                    boj_12865_dp[i][j] = in[i].v;
+                }
+                continue;
+            }
+            if(in[i].w <= j) {
+                boj_12865_dp[i][j] = max(boj_12865_dp[i-1][j],
+                                         in[i].v + boj_12865_dp[i-1][j-in[i].w]);
+            }
+            else {
+                boj_12865_dp[i][j] = boj_12865_dp[i-1][j];
+            }
+        }
+    }
+    
+    cout<<boj_12865_dp[n-1][k]<<endl;
+//    // show
+//    for(int i=0;i<n;i++){
+//        cout<<in[i].w<<" "<<in[i].v<<endl;
+//    }
+}
+
+int main(){
+    cin.sync_with_stdio(false);
+    cin.tie(NULL);
+    boj_12865();
+    return 0;
+}
+
+~~~
