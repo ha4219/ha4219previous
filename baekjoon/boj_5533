@@ -1,0 +1,27 @@
+# boj_5533
+
+## 구현
+```python3
+from sys import stdin
+
+n = int(stdin.readline().strip())
+arr = []
+for _ in range(n):
+    arr.append([int(i) for i in stdin.readline().split()])
+res = [0 for _ in range(n)]
+for i in range(3):
+    ch = {}
+    for j in range(n):
+        if arr[j][i] not in ch.keys():
+            ch[arr[j][i]] = 1
+        else:
+            ch[arr[j][i]] = 2
+
+    for j in range(n):
+        if arr[j][i] in ch.keys() and ch[arr[j][i]] is not 2:
+            res[j] += arr[j][i]
+
+for j in range(n):
+    print(res[j])
+
+```
