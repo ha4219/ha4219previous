@@ -1,0 +1,11 @@
+# boj_11006
+## ?
+```python3
+from sys import stdin
+
+
+T = int(stdin.readline().strip())
+for _ in range(T):
+    N, M = map(int, stdin.readline().split())
+    print(M*2-N, N-M)
+```
