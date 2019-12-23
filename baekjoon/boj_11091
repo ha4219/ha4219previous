@@ -1,0 +1,31 @@
+# boj_11091
+## ? 문자열 처리
+```python3
+from sys import stdin
+
+
+T = int(stdin.readline().strip())
+for _ in range(T):
+    string = stdin.readline().strip()
+    string = string.lower()
+    visit = [0 for j in range(26)]
+    res = []
+    cnt = 0
+    for c in string:
+        if ord(c)<97 or ord(c)>122:
+            continue
+        if visit[ord(c) - ord('a')]:
+            continue
+        else:
+            visit[ord(c) - ord('a')] = 1
+            cnt += 1
+    for i in range(26):
+        if not visit[i]:
+            res.append(chr(i + ord('a')))
+
+    if not res:
+        print('pangram')
+    else:
+        print('missing {}'.format(''.join(res)), end='')
+
+```
