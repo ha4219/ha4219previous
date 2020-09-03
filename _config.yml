@@ -2,18 +2,3 @@ theme: jekyll-theme-minimal
 title: 군수하는 개발 블로그
 description: 알고리즘 위주로 올릴 생각입니다.
 url: "https://ha4219.github.io"
-defaults:
-  -scope:
-      path: "baekjoon"
-      type: "baekjoon"
-   values:
-      layout: single
-      author_profile: true
-      read_time: true
-      share: true
-      related: true
-  -scope:
-    path: "-posts"
-    type: pages
-  values:
-    layout: single
