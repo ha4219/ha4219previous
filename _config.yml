@@ -2,4 +2,4 @@ theme: jekyll-theme-minimal
 title: donglog
 description: 알고리즘
 url: "https://ha4219.github.io"
-baseurl: '/index.md'
+baseurl: '/index'
